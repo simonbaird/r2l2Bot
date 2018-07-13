@@ -1,0 +1,12 @@
+How to start Hacking
+--------------------
+
+See the Alphabot Examples hosted here:
+
+    https://www.waveshare.com/wiki/File:AlphaBot_Demo.7z
+
+Steps to get to the Python examples:
+
+* 7za e AlphaBot_Demo.7z
+* unpack the including *.tar.gz with: tar xzf AlphaBot.tar.gz
+* cd AlphaBot/python
