@@ -16,9 +16,11 @@ try:
         elif user_input == "right" or user_input.lower() == "r":
             Ab.right()
         elif user_input == "x":
-            raise KeyboardInterrupt
+            break
         else:
             print("That command isnt valid. Please try f=forward, b=backwards, l=left, r=right or x to exit.")
         time.sleep(1)
 except KeyboardInterrupt:
+    print("\n")
+finally:
     AlphaBot2.gpio_cleanup()
