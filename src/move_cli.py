@@ -1,26 +1,26 @@
-from AlphaBot2 import AlphaBot2
-import time
 
-Ab = AlphaBot2()
+from r2l2_commands import R2L2Commands
+#from dummy_commands import R2L2Commands
+
+commands = R2L2Commands()
+prompt = ">> "
 
 try:
     while True:
-        Ab.stop()
-        user_input = raw_input("What should I do now?")
-        if user_input == "forward" or user_input.lower() == "f":
-            Ab.forward()
-        elif user_input == "backward" or user_input.lower() == "b" :
-            Ab.backward()
-        elif user_input == "left" or user_input.lower() == "l":
-            Ab.left()
-        elif user_input == "right" or user_input.lower() == "r":
-            Ab.right()
-        elif user_input == "x":
+        user_input = raw_input(prompt).strip().lower()
+        # help and exit are special commands that we handle here directly
+        if user_input in ['help', 'h', '?']:
+            print(commands.help())
+            print("  help h ? - Help")
+            print("  exit x q Ctrl-C - Exit")
+        elif user_input in ['exit', 'x', 'q']:
+            print("Bye")
             break
+        # Other commands are passed through to the command handler
         else:
-            print("That command isnt valid. Please try f=forward, b=backwards, l=left, r=right or x to exit.")
-        time.sleep(1)
+            print(commands.do_command(user_input))
+
 except KeyboardInterrupt:
-    print("\n")
+    print("\nBye")
 finally:
-    AlphaBot2.gpio_cleanup()
+    commands.cleanup()
