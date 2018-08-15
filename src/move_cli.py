@@ -1,4 +1,3 @@
-import RPi.GPIO as GPIO
 from AlphaBot2 import AlphaBot2
 import time
 
@@ -22,4 +21,4 @@ try:
             print("That command isnt valid. Please try f=forward, b=backwards, l=left, r=right or x to exit.")
         time.sleep(1)
 except KeyboardInterrupt:
-    GPIO.cleanup()
+    AlphaBot2.gpio_cleanup()

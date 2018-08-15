@@ -93,6 +93,11 @@ class AlphaBot2(object):
             GPIO.output(self.BIN2,GPIO.HIGH)
             self.PWMB.ChangeDutyCycle(0 - left)
 
+    # So code using this module can clean up without needing to import the GPIO module
+    @staticmethod
+    def gpio_cleanup():
+        GPIO.cleanup()
+
 if __name__=='__main__':
 
     Ab = AlphaBot2()
