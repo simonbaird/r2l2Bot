@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 
 from r2l2_commands import R2L2Commands
 #from dummy_commands import R2L2Commands
 
 commands = R2L2Commands()
-prompt = ">> "
+
+#prompt = ">> "
+prompt = "🤖> "
 
 try:
     while True:
